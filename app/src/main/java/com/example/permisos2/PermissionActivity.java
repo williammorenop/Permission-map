@@ -21,31 +21,30 @@ public class PermissionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permission);
-        message=findViewById(R.id.textView);
+        message = findViewById(R.id.textView);
         requestPermission(this, Manifest.permission.READ_CONTACTS, "Se necesita acceder a los contactos", CONTACTS_PERMISSION);
         initView();
 
     }
 
 
-
-    private void requestPermission(Activity context, String permission, String explanation, int requestId ){
-        if (ContextCompat.checkSelfPermission(context,permission)!= PackageManager.PERMISSION_GRANTED) {
+    private void requestPermission(Activity context, String permission, String explanation, int requestId) {
+        if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
             // Should we show an explanation?
-            
-            if (ActivityCompat.shouldShowRequestPermissionRationale(context,permission)) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(context, permission)) {
                 Toast.makeText(context, explanation, Toast.LENGTH_LONG).show();
             }
             ActivityCompat.requestPermissions(context, new String[]{permission}, requestId);
         }
     }
 
-    private void initView(){
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)== PackageManager.PERMISSION_GRANTED){
+    private void initView() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
             message.setTextColor(Color.GREEN);
             message.setText("Permiso aprobado");
 
-        }else {
+        } else {
             message.setTextColor(Color.RED);
             message.setText("Permiso denegado");
         }

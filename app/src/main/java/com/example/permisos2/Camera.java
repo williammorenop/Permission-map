@@ -43,14 +43,13 @@ import java.util.Locale;
 public class Camera extends AppCompatActivity {
 
     private TextView message;
-  private final static int CAMERA_PERMISSION = 2;
-   private final static int GALLERY_PERMISSION =3 ;
-
+    private final static int CAMERA_PERMISSION = 2;
+    private final static int GALLERY_PERMISSION = 3;
 
     ImageView foto;
     Button galeria;
     Button camara;
-    private static final String TAG = "SearchActivity";
+    private static final String TAG = "CameraActivity";
     private static final int REQUEST_CODE = 1;
 
 
@@ -66,18 +65,19 @@ public class Camera extends AppCompatActivity {
         verifyPermissions();
 
     }
-/**
-    private void requestPermission(Activity context, String permission, String explanation, int requestId) {
-        if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
-            // Should we show an explanation?
 
-            if (ActivityCompat.shouldShowRequestPermissionRationale(context, permission)) {
-                Toast.makeText(context, explanation, Toast.LENGTH_LONG).show();
-            }
-            ActivityCompat.requestPermissions(context, new String[]{permission}, requestId);
-        }
-    }
- **/
+    /**
+     * private void requestPermission(Activity context, String permission, String explanation, int requestId) {
+     * if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+     * // Should we show an explanation?
+     * <p>
+     * if (ActivityCompat.shouldShowRequestPermissionRationale(context, permission)) {
+     * Toast.makeText(context, explanation, Toast.LENGTH_LONG).show();
+     * }
+     * ActivityCompat.requestPermissions(context, new String[]{permission}, requestId);
+     * }
+     * }
+     **/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
